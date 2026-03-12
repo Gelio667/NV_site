@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>NovaFiles Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; background: #0b0b0f; color: #f3f3f6; }
+    .hero { margin-bottom: 28px; }
+    .card { border: 1px solid #2a2a35; border-radius: 16px; padding: 16px; background: #14141c; margin-bottom: 16px; }
+    .muted { color: #b8b8c7; }
+    code { background: #0f0f16; padding: 2px 6px; border-radius: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 16px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>NovaFiles status</h1>
+    <p class="muted">Публичная страница для показа поддерживаемых версий и состояния сервиса.</p>
+  </section>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Файл политики</h3>
+      <p>Приложение читает <code>data.txt</code> с этой страницы или raw-версию из репозитория.</p>
+      <p><a href="./data.txt">Открыть data.txt</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Поддерживаемые версии</h3>
+      <ul>
+        <li>0.0.1</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Недавно отключены</h3>
+      <ul>
+        <li>Пока нет записей</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
