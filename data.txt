@@ -1,0 +1,10 @@
+{
+  "mode": "normal",
+  "latest": "0.0.1",
+  "min_supported": "0.0.1",
+  "blocked_versions": [],
+  "license_days": 30,
+  "message_ru": "Эта версия больше не поддерживается.",
+  "update_url": "https://github.com/yourname/yourrepo/releases",
+  "allow_bypass": false
+}
