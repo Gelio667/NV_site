@@ -5,6 +5,6 @@
   "blocked_versions": [],
   "license_days": 30,
   "message_ru": "Эта версия больше не поддерживается.",
-  "update_url": "https://github.com/yourname/yourrepo/releases",
+  "update_url": "",
   "allow_bypass": false
 }
