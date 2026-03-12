@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>NovaFiles write</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 980px; margin: 32px auto; padding: 0 16px; background: #0b0b0f; color: #f3f3f6; }
+    .card { border: 1px solid #2a2a35; border-radius: 16px; padding: 16px; background: #14141c; margin-bottom: 16px; }
+    textarea, input { width: 100%; box-sizing: border-box; border-radius: 12px; border: 1px solid #36364a; background: #0f0f16; color: #fff; padding: 12px; }
+    textarea { min-height: 320px; resize: vertical; }
+    button { padding: 12px 16px; border: 0; border-radius: 12px; background: #7c5cff; color: white; font-weight: 700; cursor: pointer; }
+    .muted { color: #b8b8c7; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #0f0f16; padding: 12px; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h1>NovaFiles /write</h1>
+  <div class="card">
+    <label>Worker endpoint</label>
+    <input id="endpoint" placeholder="https://your-worker.workers.dev" />
+    <br><br>
+    <label>Token</label>
+    <input id="token" type="password" placeholder="write token" />
+    <br><br>
+    <label>Path in repo</label>
+    <input id="path" value="docs/data.txt" />
+    <br><br>
+    <label>Commit message</label>
+    <input id="message" value="Update policy" />
+  </div>
+
+  <div class="card">
+    <label>JSON policy</label>
+    <textarea id="json">{
+  "mode": "normal",
+  "latest": "0.0.1",
+  "min_supported": "0.0.1",
+  "blocked_versions": [],
+  "license_days": 30,
+  "message_ru": "Эта версия больше не поддерживается.",
+  "update_url": "https://github.com/yourname/yourrepo/releases",
+  "allow_bypass": false
+}</textarea>
+    <br><br>
+    <button id="send">Отправить</button>
+  </div>
+
+  <div class="card">
+    <h3>Результат</h3>
+    <pre id="out">Ожидание…</pre>
+  </div>
+
+  <script>
+    document.getElementById('send').onclick = async () => {
+      const endpoint = document.getElementById('endpoint').value.trim();
+      const token = document.getElementById('token').value;
+      const content = document.getElementById('json').value;
+      const path = document.getElementById('path').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const out = document.getElementById('out');
+
+      if (!endpoint) {
+        out.textContent = 'Не указан endpoint.';
+        return;
+      }
+
+      out.textContent = 'Отправка…';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ token, content, path, message })
+        });
+
+        const txt = await res.text();
+        out.textContent = txt;
+      } catch (e) {
+        out.textContent = String(e);
+      }
+    };
+  </script>
+</body>
+</html>
