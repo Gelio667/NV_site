@@ -1,10 +1,10 @@
 {
   "mode": "normal",
-  "latest": "0.0.1",
+  "latest": "0.0.2",
   "min_supported": "0.0.1",
-  "blocked_versions": [],
+  "blocked_versions": ["0.0.0", "0.0.0-dev"],
   "license_days": 30,
-  "message_ru": "Эта версия больше не поддерживается.",
-  "update_url": "",
+  "message_ru": "Эта версия устарела. Пожалуйста, установите обновление.",
+  "update_url": "https://github.com/Gelio667/NV_site/releases",
   "allow_bypass": false
 }
