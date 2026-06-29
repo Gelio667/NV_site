@@ -1,7 +1,7 @@
 {
   "mode": "normal",
   "latest": "0.0.2",
-  "min_supported": "0.0.3",
+  "min_supported": "0.0.1",
   "blocked_versions": ["0.0.0", "0.0.0-dev"],
   "license_days": 30,
   "message_ru": "Эта версия устарела. Пожалуйста, установите обновление.",
